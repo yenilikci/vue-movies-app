@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     searchRes: [],
     favouriteMovies: [],
+    imdbID: null,
   },
   mutations: {
     setSearchRes(state, payload) {
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
     },
     deleteFavouriteMovie(state, value) {
       state.favouriteMovies.splice(value, 1);
+    },
+    setImdbID(state, payload) {
+      state.imdbID = payload;
     },
   },
 });

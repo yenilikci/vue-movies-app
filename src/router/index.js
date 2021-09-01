@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import SearchByTitle from "../components/SearchByTitle.vue";
 import FavouriteMovies from "../components/FavouriteMovies.vue";
+import MovieDetail from "../components/MovieDetail.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,10 @@ export default new VueRouter({
     {
       path: "/favourite",
       component: FavouriteMovies,
+    },
+    {
+      path: "/detail",
+      component: MovieDetail,
     },
   ],
 });

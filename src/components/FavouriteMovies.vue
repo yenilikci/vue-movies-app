@@ -12,7 +12,8 @@
           <th>Movie Title</th>
           <th>Movie Year</th>
           <th>Poster</th>
-          <th>Fav</th>
+          <th>Delete</th>
+          <th>Detail</th>
         </tr>
       </thead>
       <tr v-for="(i, index) in this.$store.state.favouriteMovies" :key="index">
@@ -21,6 +22,9 @@
         <td><img :src="i.Poster" class="img-poster" /></td>
         <td>
           <button @click="deleteFav(index)" class="btn btn-danger">-</button>
+        </td>
+        <td>
+          <button @click="detail(i.imdbID)" class="btn btn-dark">Detail</button>
         </td>
       </tr>
     </table>
@@ -32,6 +36,10 @@
     methods: {
       deleteFav(index) {
         this.$store.commit("deleteFavouriteMovie", index);
+      },
+      detail(id) {
+        this.$store.commit("setImdbID", id);
+        this.$router.push("/detail");
       },
     },
   };
