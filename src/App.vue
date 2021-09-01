@@ -1,14 +1,12 @@
 <template>
-  <div id="app"><SearchByTitle /></div>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
 <script>
-  import SearchByTitle from "./components/SearchByTitle.vue";
   export default {
     name: "App",
-    components: {
-      SearchByTitle,
-    },
   };
 </script>
 
