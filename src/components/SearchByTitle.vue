@@ -9,13 +9,16 @@
       <button class="d-inline btn btn-dark mx-2" @click="getMovieByTitle">
         Search Movie By Title
       </button>
+      <router-link to="/favourite" class="btn btn-warning"
+        >My Favourites</router-link
+      >
       <table class="table table-bordered mt-2">
         <thead class="thead-dark">
           <tr>
             <th>Movie Title</th>
             <th>Movie Year</th>
             <th>Poster</th>
-            <th>Fav</th>
+            <th>Add Favourite</th>
           </tr>
         </thead>
         <tr
@@ -26,7 +29,7 @@
           <td>{{ i.Year }}</td>
           <td><img :src="i.Poster" class="img-poster" /></td>
           <td>
-            <button class="btn btn-success">+</button>
+            <button @click="setFavourite(i)" class="btn btn-success">+</button>
           </td>
         </tr>
       </table>
@@ -52,6 +55,10 @@
             console.log(res);
             this.$store.commit("setSearchRes", res.data);
           });
+      },
+      setFavourite(i) {
+        //console.log(i);
+        this.$store.commit("setFavouriteMovies", i);
       },
     },
   };
