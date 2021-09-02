@@ -2,9 +2,14 @@
   <div class="container">
     <div class="d-flex justify-content-around align-items-center">
       <h3 class="d-inline">My Favourite Movies</h3>
-      <router-link to="/search" class="btn btn-info mx-2"
-        >Back Search</router-link
-      >
+      <div>
+        <router-link to="/search" class="btn btn-info mx-2"
+          >Back Search</router-link
+        >
+        <router-link to="/review" class="btn btn-secondary mx-2"
+          >Go Review</router-link
+        >
+      </div>
     </div>
     <table class="table table-bordered mt-2">
       <thead class="thead-dark">

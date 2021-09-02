@@ -54,12 +54,28 @@
         </li>
       </ul>
       <div class="card-body">
-        <router-link to="/search" class="card-link btn btn-success p-2"
-          >Back Search</router-link
-        >
+        <button @click="goSearch" class="card-link btn btn-secondary p-2">
+          Back Search
+        </button>
         <router-link to="/favourite" class="card-link btn btn-danger p-2"
           >Back Favourites</router-link
         >
+      </div>
+      <div class="card-footer">
+        <h5>Review:</h5>
+        <input
+          v-model="myVote"
+          placeholder="Max: 100"
+          class="form-control my-1"
+        />
+        <textarea
+          v-model="review"
+          class="form-control my-1"
+          rows="3"
+        ></textarea>
+        <button @click="addReview" class="btn btn-success mt-2">
+          Add Review And Vote
+        </button>
       </div>
     </div>
   </div>
@@ -71,6 +87,8 @@
     data() {
       return {
         movieDetail: null,
+        review: "",
+        myVote: null,
       };
     },
     created: function() {
@@ -82,6 +100,30 @@
           //console.log(res);
           this.movieDetail = res;
         });
+    },
+    methods: {
+      addReview() {
+        if (this.$store.state.imdbID !== null) {
+          const data = {
+            id: this.$store.state.imdbID,
+            title: this.movieDetail.data.Title,
+            poster: this.movieDetail.data.Poster,
+            review: this.review,
+            myVote: this.myVote,
+          };
+          this.$store.commit("setMyReviewsAndVotes", data);
+          this.$router.push("/favourite");
+        } else {
+          alert("id null !");
+        }
+      },
+      goSearch() {
+        this.$store.commit("deleteImdbID");
+        this.movieDetail = null;
+        this.myVote = null;
+        this.review = "";
+        this.$router.push("/search");
+      },
     },
   };
 </script>
