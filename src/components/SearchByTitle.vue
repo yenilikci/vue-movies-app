@@ -9,7 +9,7 @@
       <button class="d-inline btn btn-dark mx-2" @click="getMovieByTitle">
         Search Movie By Title
       </button>
-      <router-link to="/favourite" class="btn btn-warning"
+      <router-link to="/favourite" class="btn btn-info"
         >My Favourites</router-link
       >
       <table class="table table-bordered mt-2">

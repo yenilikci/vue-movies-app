@@ -23,6 +23,12 @@
         </div>
         <div class="card-footer">
           <span><b>Review:</b> {{ i.review }}</span>
+          <button
+            @click="deleteReview(index)"
+            class="mt-3 btn btn-danger btn-block"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
@@ -30,7 +36,14 @@
 </template>
 
 <script>
-  export default {};
+  export default {
+    name: "ReviewPage",
+    methods: {
+      deleteReview(index) {
+        this.$store.commit("deleteMyReviewAndVotes", index);
+      },
+    },
+  };
 </script>
 
 <style scoped>

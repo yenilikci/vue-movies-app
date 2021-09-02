@@ -12,6 +12,10 @@ export default new VueRouter({
   mode: "history",
   routes: [
     {
+      path: "/",
+      component: SearchByTitle,
+    },
+    {
       path: "/search",
       component: SearchByTitle,
     },

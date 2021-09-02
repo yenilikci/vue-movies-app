@@ -29,6 +29,9 @@ const store = new Vuex.Store({
     deleteImdbID(state) {
       state.imdbID = null;
     },
+    deleteMyReviewAndVotes(state, value) {
+      state.myReviewsAndVotes.splice(value, 1);
+    },
   },
 });
 
